@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450B52F52D6EDDAF00C99BC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B52EC2D6EDDAF00C99BC9 /* MainViewController.swift */; };
+		450B53002D6EFE4E00C99BC9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B52FF2D6EFE4700C99BC9 /* SecondViewController.swift */; };
 		5768AD91A203E5828CF92C1A /* Pods_memo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D7D409EC632924FB274367 /* Pods_memo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00192DFD50FCBE538AC9FE84 /* Pods-memo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo.release.xcconfig"; path = "Target Support Files/Pods-memo/Pods-memo.release.xcconfig"; sourceTree = "<group>"; };
+		450B52EC2D6EDDAF00C99BC9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		450B52FF2D6EFE4700C99BC9 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		45AFADD12D644D96004A42E6 /* memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDF25BA87D229FAC1019F6D /* Pods-memo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo.debug.xcconfig"; path = "Target Support Files/Pods-memo/Pods-memo.debug.xcconfig"; sourceTree = "<group>"; };
 		E6D7D409EC632924FB274367 /* Pods_memo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,9 +54,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		450B52F62D6EDF1700C99BC9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				450B52FF2D6EFE4700C99BC9 /* SecondViewController.swift */,
+				450B52EC2D6EDDAF00C99BC9 /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		45AFADC82D644D96004A42E6 = {
 			isa = PBXGroup;
 			children = (
+				450B52F62D6EDF1700C99BC9 /* ViewControllers */,
 				45AFADD32D644D96004A42E6 /* memo */,
 				45AFADD22D644D96004A42E6 /* Products */,
 				BC22BCE05185B6E8DE4AC5C6 /* Pods */,
@@ -201,6 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				450B53002D6EFE4E00C99BC9 /* SecondViewController.swift in Sources */,
+				450B52F52D6EDDAF00C99BC9 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +239,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -253,7 +269,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
