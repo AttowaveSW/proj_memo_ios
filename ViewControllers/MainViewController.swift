@@ -66,9 +66,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, CBCentral
             case .preparing:
                 print("네트워크 준비 중")
             case .ready:
-                print("네트워크 연결 가능 ✅")
+                print("✅ 네트워크 연결 가능")
             case .failed(let error):
-                print("네트워크 연결 실패 ❌: \(error.localizedDescription)")
+                print("❌ 네트워크 연결 실패: \(error.localizedDescription)")
                 self.showSettingsNetworkAlert()
             default:
                 break
