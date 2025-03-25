@@ -2,22 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>추적 권한을 허용</string>
-	<key>NSUserNotificationsUsageDescription</key>
-	<string>Noti권한을 허용</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Location권한을 허용</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Location권한을 허용</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Bluetooth권한을 허용</string>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>Network권한을 허용</string>
 	<key>NSAllowsArbitraryLoads</key>
 	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Photo권한을 허용</string>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>Noti권한을 허용</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

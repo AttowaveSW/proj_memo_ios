@@ -188,7 +188,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, CBCentral
         
         if let secondVC = storyboard.instantiateViewController(identifier: "SecondViewController") as? SecondViewController {
             secondVC.modalPresentationStyle = .fullScreen
-            present(secondVC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(secondVC, animated: true)
+            //present(secondVC, animated: true, completion: nil) // 5week, 네비게이션컨트롤러 이용하여 화면 이동, 상단에 <back 버튼 생기게 하기 위해 변경 함.
         } else {
             print("SecondViewController를 찾을 수 없습니다!")
         }
