@@ -8,9 +8,9 @@
 import UIKit
 import Lottie
 
-/* 버튼 누르면 이동하는 SecondView */
+// 버튼 누르면 이동하는 SecondView
 class SecondViewController: UIViewController {
-    
+
     @IBOutlet weak var memoTableView: UITableView!
     
     let animationView: LottieAnimationView = {
@@ -20,9 +20,11 @@ class SecondViewController: UIViewController {
         return animview
     }()
     
-    /* 뷰가 생성되었을 때~ */
+    // 뷰가 생성되었을 때
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        MemoManager.shared.loadMemoList()
         
         self.memoTableView.delegate   = self
         self.memoTableView.dataSource = self
@@ -39,21 +41,53 @@ class SecondViewController: UIViewController {
         //    print("애니메이션이 끝났당.")
         //}
     }
+    
+    //화면이 다시 나타날 때 (뒤로 왔을 때) 테이블 뷰 새로고침
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("메모 갯수: \(MemoManager.shared.memoList.count)")
+        memoTableView.reloadData() //리스트 업데이트
+    }
+    
+    // + 버튼 눌렀을 때, 새로운 메모를 생성 함
+    @IBAction func addMemo(_ sender: UIBarButtonItem) {
+        let newMemo = Memo(title: "", content: "") //새로운 빈 메모 생성
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let memoVC = storyboard.instantiateViewController(withIdentifier: "MemoViewController") as? MemoViewController {
+            memoVC.memo      = newMemo   //새 메모 전달
+            memoVC.isNewMemo = true //새 메모인지 확인할 수 있도록 설정
+            print("새로운 메모 생성됨, isNewMemo = \(memoVC.isNewMemo)")
+            navigationController?.pushViewController(memoVC, animated: true)
+        }
+    }
 }
 
-/* tableView logic을 분리, extension 사용 */
+// tableView logic을 분리, extension 사용
 extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Memo.testMemoList.count
+        return MemoManager.shared.memoList.count//Memo.testMemoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "memoCell", for: indexPath)
         
-        let memo                   = Memo.testMemoList[indexPath.row] // 해당 행의 메모를 가져옴
+        let memo                   = MemoManager.shared.memoList[indexPath.row] // 해당 행의 메모를 가져옴
         cell.textLabel?.text       = (memo.title) // title 표시
         cell.detailTextLabel?.text = "\(memo.date)" // date 표시
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedMemo = MemoManager.shared.memoList[indexPath.row] // 선택한 메모 가져오기
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) // "Main"은 스토리보드 파일 이름
+        if let memoVC = storyboard.instantiateViewController(withIdentifier: "MemoViewController") as? MemoViewController {
+            memoVC.memo = selectedMemo  // 선택한 메모를 전달
+            memoVC.isNewMemo = false    // 기존 메모이므로 false 설정
+            navigationController?.pushViewController(memoVC, animated: true) // 화면 이동
+        }
     }
 }

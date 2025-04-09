@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -69,7 +70,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="✏️ Memo" id="QdK-Tl-Kl9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="08r-mB-OaO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="08r-mB-OaO">
+                            <connections>
+                                <action selector="addMemo:" destination="NZ1-b0-mwp" id="Whx-60-tVc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -79,6 +84,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwO-3G-SA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="829.7709923664122" y="-2.1126760563380285"/>
+        </scene>
+        <!--Memo View Controller-->
+        <scene sceneID="GyU-yT-uAo">
+            <objects>
+                <viewController storyboardIdentifier="MemoViewController" id="dJ5-Qk-6Zk" customClass="MemoViewController" customModule="memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jl1-oD-AHP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Memo Text View" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a5N-n0-CLm">
+                                <rect key="frame" x="38" y="84" width="316" height="695"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PGB-CN-3MY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="mxU-w5-YDV"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="memoTextView" destination="a5N-n0-CLm" id="N9a-is-vn5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QcA-Yf-LhX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1585.4961832061067" y="-2.1126760563380285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="K2d-WT-17v">
@@ -99,5 +135,11 @@
     </scenes>
     <resources>
         <image name="splashImg" width="64" height="64"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
