@@ -45,7 +45,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, CBCentral
         //1. 사용자 인터랙션 활성화
         splashImg.isUserInteractionEnabled = true
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        moveSecondView() //SecondView로 이동
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(moveSecondView))
         splashImg.addGestureRecognizer(tapGesture)
     }
     
@@ -182,9 +184,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, CBCentral
         }
     }
     
-    @objc func imageTapped(){
+    @objc func moveSecondView(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        print("이미지를 클릭했다!") //테스트용 로그
         
         if let secondVC = storyboard.instantiateViewController(identifier: "SecondViewController") as? SecondViewController {
             secondVC.modalPresentationStyle = .fullScreen
@@ -195,4 +196,3 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, CBCentral
         }
     }
 }
-
