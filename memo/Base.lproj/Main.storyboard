@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -70,6 +71,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="✏️ Memo" id="QdK-Tl-Kl9">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.3.horizontal" catalog="system" width="97.666666666666671" id="M96-Fl-gRb">
+                            <connections>
+                                <action selector="didTapMenuButton:" destination="NZ1-b0-mwp" id="gQV-xw-2Vb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="08r-mB-OaO">
                             <connections>
                                 <action selector="addMemo:" destination="NZ1-b0-mwp" id="Whx-60-tVc"/>
@@ -84,6 +90,190 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwO-3G-SA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="829.7709923664122" y="-2.1126760563380285"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="AHJ-7y-FVa">
+            <objects>
+                <viewController id="HvN-Rm-izC" customClass="SideMenuViewController" customModule="memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ugV-Oc-CfN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIb-V2-ntz">
+                                <rect key="frame" x="83" y="711" width="166" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-pL-hDW" userLabel="DeveloperInfoBtn">
+                                <rect key="frame" x="16" y="103" width="196" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="개발자 정보"/>
+                                <connections>
+                                    <action selector="openDeveloperInfo:" destination="HvN-Rm-izC" eventType="touchUpInside" id="vTH-f4-upK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8x-rW-FvD" userLabel="MapViewBtn">
+                                <rect key="frame" x="16" y="203" width="196" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="지도를 보여줄게요"/>
+                                <connections>
+                                    <action selector="didTapMapButton:" destination="HvN-Rm-izC" eventType="touchUpInside" id="hZ8-ES-3PY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1v-be-ilb" userLabel="SettingBtn">
+                                <rect key="frame" x="16" y="314" width="196" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="설정"/>
+                                <connections>
+                                    <action selector="didTapSettings:" destination="HvN-Rm-izC" eventType="touchUpInside" id="Z0r-GM-AcM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QT0-Gc-6X3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IWY-Cy-AU2"/>
+                    <connections>
+                        <outlet property="versionLabel" destination="OIb-V2-ntz" id="03k-WU-T8g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2A4-XP-En8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829.7709923664122" y="684.50704225352115"/>
+        </scene>
+        <!--Developer Info View Controller-->
+        <scene sceneID="1TU-J3-cbh">
+            <objects>
+                <viewController storyboardIdentifier="DeveloperInfoViewController" id="bTD-ZA-Aeu" customClass="DeveloperInfoViewController" customModule="memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8MM-jM-ZVl">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PnP-Um-euc">
+                                <rect key="frame" x="26" y="99" width="340" height="503"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PXt-en-3oD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="PnP-Um-euc" id="NZM-C5-oP2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ma-sN-qyF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1585.4961832061067" y="684.50704225352115"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="DhS-Mt-Yos">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="ehO-dC-zFY" customClass="MapViewController" customModule="memo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MFm-m3-2Ug">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fzm-kn-p1j">
+                                <rect key="frame" x="16" y="101" width="361" height="717"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="875-FQ-L0r"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="fzm-kn-p1j" id="5TK-WM-U8s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q3v-uO-FVW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590.0763358778624" y="1337.323943661972"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="sAC-eu-1fi">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="7al-sC-037" customClass="SettingsViewController" customModule="memo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hka-t0-Rs6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wam-Om-qCX">
+                                <rect key="frame" x="226" y="138" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didToggleNotificationSwitch:" destination="7al-sC-037" eventType="valueChanged" id="sWO-qF-wDc"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알림 권한 허용" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7y-ZG-C7M">
+                                <rect key="frame" x="72" y="140" width="128" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5dH-hp-B9c">
+                                <rect key="frame" x="196" y="204" width="163" height="153"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0h3-um-TvA">
+                                <rect key="frame" x="72" y="365" width="201" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="배경색 미리보기👇🏻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEl-8N-sqa">
+                                <rect key="frame" x="72" y="336" width="131" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="메모장 배경색" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyu-Yl-dj2">
+                                <rect key="frame" x="72" y="219" width="116" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xmZ-6r-4nM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="colorPicker" destination="5dH-hp-B9c" id="EAh-Cc-iDm"/>
+                        <outlet property="notificationSwitch" destination="Wam-Om-qCX" id="o1W-pn-vVp"/>
+                        <outlet property="previewView" destination="0h3-um-TvA" id="Thz-jt-dG3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bcf-iN-odm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1600.7633587786258" y="1986.6197183098593"/>
+        </scene>
+        <!--Side Menu. Side Menu Navigation Controller-->
+        <scene sceneID="VmZ-bC-aAU">
+            <objects>
+                <navigationController storyboardIdentifier="SideMenuNavigationController" id="Yp5-gx-pwb" customClass="SideMenu.SideMenuNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iCf-yH-kK5">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HvN-Rm-izC" kind="relationship" relationship="rootViewController" id="3YN-Cp-ec0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OAf-Y1-Xw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47" y="685"/>
         </scene>
         <!--Memo View Controller-->
         <scene sceneID="GyU-yT-uAo">
@@ -134,6 +324,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="splashImg" width="64" height="64"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -7,11 +7,18 @@
 
 import UIKit
 import Lottie
+import SideMenu
 
 // 버튼 누르면 이동하는 SecondView
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var memoTableView: UITableView!
+    
+    @IBAction func didTapMenuButton(_ sender: UIBarButtonItem) {
+        if let menu = SideMenuManager.default.leftMenuNavigationController {
+            present(menu, animated: true, completion: nil)
+        }
+    }
     
     let animationView: LottieAnimationView = {
         let animview         = LottieAnimationView(name: "clap") // 박수치는 이미지
@@ -23,6 +30,14 @@ class SecondViewController: UIViewController {
     // 뷰가 생성되었을 때
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let menuVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenuNavigationController") as! SideMenu.SideMenuNavigationController
+        SideMenuManager.default.leftMenuNavigationController = menuVC
+
+        menuVC.presentationStyle = .menuSlideIn // SecondView는 가만히 있고 sidemenu만 나오기
+        menuVC.presentationStyle.onTopShadowOpacity = 0.5 // 배경 어둡게 효과
+
+        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.view, forMenu: .left)
 
         MemoManager.shared.loadMemoList()
         
@@ -48,7 +63,7 @@ class SecondViewController: UIViewController {
     // 화면이 다시 나타날 때(뒤로 왔을 때) 테이블 뷰를 새로고침
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+            
         // 저장된 시간순으로 정렬(최신이 위로)
         MemoManager.shared.memoList.sort {
             $0.date > $1.date
@@ -75,7 +90,7 @@ class SecondViewController: UIViewController {
 // tableView logic을 분리, extension 사용
 extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MemoManager.shared.memoList.count//Memo.testMemoList.count
+        return MemoManager.shared.memoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,4 +113,19 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(memoVC, animated: true) // 화면 이동
         }
     }
+    
+    // 메모리스트에서 스와이프해서 삭제하기
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // 1.메모 리스트에서 삭제
+            MemoManager.shared.memoList.remove(at: indexPath.row)
+
+            // 2.저장
+            MemoManager.shared.saveMemoList()
+
+            // 3.테이블 뷰에서 셀 삭제
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+
 }

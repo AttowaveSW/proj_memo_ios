@@ -10,6 +10,11 @@
 		450B52F52D6EDDAF00C99BC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B52EC2D6EDDAF00C99BC9 /* MainViewController.swift */; };
 		450B53002D6EFE4E00C99BC9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B52FF2D6EFE4700C99BC9 /* SecondViewController.swift */; };
 		45581AD92D9E51450037DEF2 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45581AD82D9E513A0037DEF2 /* MemoViewController.swift */; };
+		45C5D0592DB1CA3A00DEE5A8 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 45C5D0582DB1CA3A00DEE5A8 /* SideMenu */; };
+		45C5D05B2DB1E34700DEE5A8 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C5D05A2DB1E34200DEE5A8 /* SideMenuViewController.swift */; };
+		45C5D0832DB7498200DEE5A8 /* DeveloperInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C5D0822DB7497F00DEE5A8 /* DeveloperInfoViewController.swift */; };
+		45C5D0852DB75C9700DEE5A8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C5D0842DB75C8E00DEE5A8 /* MapViewController.swift */; };
+		45C5D0872DB770AD00DEE5A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C5D0862DB770A600DEE5A8 /* SettingsViewController.swift */; };
 		5768AD91A203E5828CF92C1A /* Pods_memo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D7D409EC632924FB274367 /* Pods_memo.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,6 +24,10 @@
 		450B52FF2D6EFE4700C99BC9 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		45581AD82D9E513A0037DEF2 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 		45AFADD12D644D96004A42E6 /* memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45C5D05A2DB1E34200DEE5A8 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		45C5D0822DB7497F00DEE5A8 /* DeveloperInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoViewController.swift; sourceTree = "<group>"; };
+		45C5D0842DB75C8E00DEE5A8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		45C5D0862DB770A600DEE5A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4DDF25BA87D229FAC1019F6D /* Pods-memo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo.debug.xcconfig"; path = "Target Support Files/Pods-memo/Pods-memo.debug.xcconfig"; sourceTree = "<group>"; };
 		E6D7D409EC632924FB274367 /* Pods_memo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -49,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C5D0592DB1CA3A00DEE5A8 /* SideMenu in Frameworks */,
 				5768AD91A203E5828CF92C1A /* Pods_memo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +69,10 @@
 		450B52F62D6EDF1700C99BC9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				45C5D0862DB770A600DEE5A8 /* SettingsViewController.swift */,
+				45C5D0842DB75C8E00DEE5A8 /* MapViewController.swift */,
+				45C5D0822DB7497F00DEE5A8 /* DeveloperInfoViewController.swift */,
+				45C5D05A2DB1E34200DEE5A8 /* SideMenuViewController.swift */,
 				45581AD82D9E513A0037DEF2 /* MemoViewController.swift */,
 				450B52FF2D6EFE4700C99BC9 /* SecondViewController.swift */,
 				450B52EC2D6EDDAF00C99BC9 /* MainViewController.swift */,
@@ -151,6 +165,9 @@
 			);
 			mainGroup = 45AFADC82D644D96004A42E6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				45C5D0572DB1CA3A00DEE5A8 /* XCRemoteSwiftPackageReference "SideMenu" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 45AFADD22D644D96004A42E6 /* Products */;
 			projectDirPath = "";
@@ -219,7 +236,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				450B53002D6EFE4E00C99BC9 /* SecondViewController.swift in Sources */,
+				45C5D0872DB770AD00DEE5A8 /* SettingsViewController.swift in Sources */,
 				45581AD92D9E51450037DEF2 /* MemoViewController.swift in Sources */,
+				45C5D0832DB7498200DEE5A8 /* DeveloperInfoViewController.swift in Sources */,
+				45C5D0852DB75C9700DEE5A8 /* MapViewController.swift in Sources */,
+				45C5D05B2DB1E34700DEE5A8 /* SideMenuViewController.swift in Sources */,
 				450B52F52D6EDDAF00C99BC9 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +467,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		45C5D0572DB1CA3A00DEE5A8 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		45C5D0582DB1CA3A00DEE5A8 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45C5D0572DB1CA3A00DEE5A8 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 45AFADC92D644D96004A42E6 /* Project object */;
 }

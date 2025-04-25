@@ -12,7 +12,7 @@ import Lottie
 class MemoViewController: UIViewController {
     var memo: Memo? // SecondViewController에서 전달받을 데이터
     var isNewMemo: Bool = false // 새 메모인지 check
-        
+
     @IBOutlet weak var memoTextView: UITextView!
     
     override func viewDidLoad() {
@@ -29,6 +29,15 @@ class MemoViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let savedColor = UserDefaults.standard.colorForKey("memoBackgroundColor") {
+            self.view.backgroundColor         = savedColor
+            self.memoTextView.backgroundColor = savedColor
+        }
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         
     }
